@@ -1,0 +1,295 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: rgb(44, 45, 48);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.main-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.main-title {
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.settings-btn {
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.settings-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.countdown-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.flip-card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.flip-card {
+    width: 120px;
+    height: 160px;
+    perspective: 1000px;
+    position: relative;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.flip-card.flip .flip-card-inner {
+    transform: rotateX(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+}
+
+.flip-card-back {
+    transform: rotateX(180deg);
+}
+
+.number {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.label {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.event-info {
+    text-align: center;
+    margin: 60px 0 30px 0;
+}
+
+.description {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.target-date-display {
+    font-size: 18px;
+    color: #ccc;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+.copyright {
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* 抽屉样式 */
+.drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 400px;
+    height: 100vh;
+    background-color: #333;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    z-index: 9999;
+    overflow-y: auto;
+    color: #fff;
+}
+
+.drawer.open {
+    right: 0;
+}
+
+.drawer-content {
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #555;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.drawer-body {
+    flex-grow: 1;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.save-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.save-btn:hover {
+    background-color: #45a049;
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+    .flip-card {
+        width: 100px;
+        height: 140px;
+    }
+    
+    .number {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .flip-card-container {
+        gap: 10px;
+    }
+    
+    .flip-card {
+        width: 80px;
+        height: 120px;
+    }
+    
+    .number {
+        font-size: 40px;
+    }
+    
+    .drawer {
+        width: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .flip-card {
+        width: 60px;
+        height: 90px;
+    }
+    
+    .number {
+        font-size: 30px;
+    }
+    
+    .label {
+        font-size: 14px;
+    }
+    
+    .drawer {
+        width: 100%;
+        right: -100%;
+    }
+}
