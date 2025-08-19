@@ -35,12 +35,14 @@ header {
     justify-content: center;
     align-items: center;
     margin: 40px 0;
+    width: 100%;
 }
 
 .main-title {
     font-size: 70px;
     font-weight: bold;
     text-align: center;
+    width: 100%;
 }
 
 .logo img {
@@ -70,20 +72,28 @@ header {
     justify-content: center;
     align-items: center;
     margin-bottom: 40px;
+    width: 100%;
+    padding: 0 10px;
 }
 
 .flip-card-container {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 5px;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
 .flip-card {
-    width: 120px;
+    width: calc(16.666% - 5px);
     height: 160px;
     perspective: 1000px;
     position: relative;
+    flex: 1 1 0;
+    margin-bottom: 15px;
+    min-width: 0;
 }
 
 .flip-card-inner {
@@ -133,18 +143,21 @@ header {
 .event-info {
     text-align: center;
     margin: 60px 0 30px 0;
+    width: 100%;
 }
 
 .description {
     font-size: 40px;
     font-weight: bold;
     margin-bottom: 10px;
+    width: 100%;
 }
 
 .target-date-display {
     font-size: 26px;
     color: #ccc;
     margin-top: 10px;
+    width: 100%;
 }
 
 footer {
@@ -245,28 +258,50 @@ footer {
 
 /* 响应式设计 */
 @media (max-width: 992px) {
+    .main-title {
+        font-size: 60px;
+    }
+    
+    .description {
+        font-size: 36px;
+    }
+    
+    .target-date-display {
+        font-size: 24px;
+    }
+    
     .flip-card {
-        width: 100px;
         height: 140px;
     }
     
     .number {
-        font-size: 50px;
+        font-size: 46px;
     }
 }
 
 @media (max-width: 768px) {
+    .main-title {
+        font-size: 50px;
+    }
+    
+    .description {
+        font-size: 32px;
+    }
+    
+    .target-date-display {
+        font-size: 22px;
+    }
+    
     .flip-card-container {
-        gap: 10px;
+        gap: 3px;
     }
     
     .flip-card {
-        width: 80px;
-        height: 120px;
+        height: 110px;
     }
     
     .number {
-        font-size: 40px;
+        font-size: 36px;
     }
     
     .drawer {
@@ -275,21 +310,62 @@ footer {
 }
 
 @media (max-width: 576px) {
+    .main-title {
+        font-size: 36px;
+    }
+    
+    .description {
+        font-size: 26px;
+    }
+    
+    .target-date-display {
+        font-size: 18px;
+    }
+    
+    .flip-card-container {
+        gap: 2px;
+    }
+    
     .flip-card {
-        width: 60px;
-        height: 90px;
+        height: 80px;
     }
     
     .number {
-        font-size: 30px;
+        font-size: 22px;
     }
     
     .label {
-        font-size: 14px;
+        font-size: 11px;
     }
     
     .drawer {
         width: 100%;
         right: -100%;
+    }
+}
+
+@media (max-width: 360px) {
+    .main-title {
+        font-size: 28px;
+    }
+    
+    .description {
+        font-size: 22px;
+    }
+    
+    .target-date-display {
+        font-size: 16px;
+    }
+    
+    .flip-card {
+        height: 60px;
+    }
+    
+    .number {
+        font-size: 18px;
+    }
+    
+    .label {
+        font-size: 9px;
     }
 }
